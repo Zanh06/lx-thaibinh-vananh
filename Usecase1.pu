@@ -1,0 +1,26 @@
+@startuml
+actor User
+actor Admin
+
+User --> (Log In)
+User --> (Insert Pictures and Videos)
+User --> (Export to PDF, Word and Excel)
+User --> (Input Data Online)
+User --> (Save Data Online)
+User --> (View Data)
+User --> (Edit Data)
+User --> (Save Data)
+User --> (Attach File)
+User --> (Save Data as a Online Storage)
+User --> (Use and Save Data at local PC): If network lost connection
+
+Admin --> (Set Permission)
+Admin --> (Create Report)
+Admin --> (Route Approve)
+Admin --> (Send Email)
+Admin --> (Format Data)
+
+(View Data) .> (Set Permissions) : include
+(Edit Data) .> (Set Permissions) : include
+(Save Data) .> (Set Permissions) : include
+@enduml
