@@ -1,26 +1,47 @@
 @startuml
-actor User
-actor Admin
+left to right direction
+actor Admin 
+actor "Nhân viên" as Staff
 
-User --> (Log In)
-User --> (Insert Pictures and Videos)
-User --> (Export to PDF, Word and Excel)
-User --> (Input Data Online)
-User --> (Save Data Online)
-User --> (View Data)
-User --> (Edit Data)
-User --> (Save Data)
-User --> (Attach File)
-User --> (Save Data as a Online Storage)
-User --> (Use and Save Data at local PC): If network lost connection
+rectangle "Lái xe Thái Bình" {
+    usecase "Quản lý học viên" as UC01
+    usecase "Quản lý xe" as UC02
+    usecase "Quản lý giáo viên" as UC03
+    usecase "Quản lý chiến dịch" as UC04
+    usecase "Quản lý thanh toán" as UC05
+    usecase "Quản lý khóa học" as UC06
+    usecase "Nhập thông tin học viên" as UC07
+    usecase "Nhập thông tin xe" as UC08
+    usecase "Nhập thông tin giáo viên" as UC09
+    usecase "Nhập thông tin người phụ trách" as UC10
+    usecase "Nhập thông tin người chăm sóc" as UC11
+    usecase "Nhập thông tin chiến dịch" as UC12
+    usecase "Phân quyền" as UC13
+    usecase "Nhập thông tin thanh toán" as UC14
+    usecase "Nhập thông tin khóa học" as UC15
+    usecase "Xác nhận thanh toán" as UC16
+}
+Admin --> UC01
+Admin --> UC02
+Admin --> UC03
+Admin --> UC04
+Admin --> UC05
+Admin --> UC06
+Admin --> UC13
 
-Admin --> (Set Permission)
-Admin --> (Create Report)
-Admin --> (Route Approve)
-Admin --> (Send Email)
-Admin --> (Format Data)
+Staff --> UC01
+Staff --> UC02
+Staff --> UC06
 
-(View Data) .> (Set Permissions) : include
-(Edit Data) .> (Set Permissions) : include
-(Save Data) .> (Set Permissions) : include
+UC01 ..> UC07: include
+UC01 ..> UC10: include
+UC01 ..> UC08: include
+UC02 ..> UC08: include
+UC03 ..> UC09: include
+UC04 ..> UC12: include
+UC04 ..> UC11: include
+UC05 ..> UC14: include
+UC05 ..> UC16: include
+UC06 ..> UC15: include
+
 @enduml
