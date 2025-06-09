@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+actor Admin
+actor User
+actor Approver
+
+rectangle "Electronic Document Management System" {
+    Usecase "Create Document" as UC01
+    usecase "Manage Document flow" as UC02
+    usecase "Manage user" as UC03
+    usecase "Set Permission" as UC04
+    usecase "Track Edit History" as UC05
+    usecase "Create Report" as UC06
+}
+
+User --> UC01
+User --> UC02
+Admin --> UC03
+Approver --> UC04
+Admin --> UC05
+Admin --> UC06
+@enduml
